@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "804226269611",
+    "project_id": "clean-task-app-289e8",
+    "storage_bucket": "clean-task-app-289e8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804226269611:android:336814396b225f1e7312ee",
+        "android_client_info": {
+          "package_name": "com.orkojk.clean_task_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBguEpuv5bX8Jv5WopXP7T0rGs-6ewOS0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804226269611:android:33f0d3086636e91e7312ee",
+        "android_client_info": {
+          "package_name": "com.orkojk.task_manage_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBguEpuv5bX8Jv5WopXP7T0rGs-6ewOS0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
