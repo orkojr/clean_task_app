@@ -1,0 +1,53 @@
+name: Flutter CI & Build APK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Cloner le code source
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Installer Flutter
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+
+      # 3. Installer les dépendances
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4. Exécuter les tests unitaires
+      - name: Run tests
+        run: flutter test
+
+      # 5. Compiler l'APK en release
+      - name: Build APK
+        run: flutter build apk --release
+
+      # 6. Uploader l'APK comme artefact GitHub
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      # 7. Installer la CLI Firebase
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # 8. Distribuer l'APK via Firebase App Distribution
+      - name: Distribute APK via Firebase App Distribution
+        run: |
+          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+            --app 1:804226269611:android:33f0d3086636e91e7312ee \
+            --token "${{ secrets.FIREBASE_TOKEN }}" \
+            --groups "testeurs"
