@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'clean-task-app-289e8',
     storageBucket: 'clean-task-app-289e8.firebasestorage.app',
   );
+
 }
