@@ -1,11 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:clean_task_app/domain/entities/task_priority.dart';
+
 class Task {
   final int? id;
   final String title;
   final String description;
   final bool isCompleted;
   final DateTime date;
-  final int priority;
+  final TaskPriority priority; // Changé de int à TaskPriority
 
   Task({
     this.id,
@@ -13,7 +14,7 @@ class Task {
     required this.description,
     this.isCompleted = false,
     required this.date,
-    required this.priority,
+    required this.priority, // Maintenant de type TaskPriority
   });
 
   Task copyWith({
@@ -22,7 +23,7 @@ class Task {
     String? description,
     bool? isCompleted,
     DateTime? date,
-    int? priority,
+    TaskPriority? priority, // Mise à jour ici aussi
   }) {
     return Task(
       id: id ?? this.id,
