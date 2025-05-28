@@ -7,4 +7,5 @@ abstract class TaskRepository {
   Future<void> updateTask(Task task);
   Future<void> updateTaskPriority(int taskId, TaskPriority newPriority); // Nouvelle méthode
   Future<void> deleteTask(int id);
+  Future<List<Task>> getTasksByPriority(TaskPriority priority);
 }
